@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\angel\.Rider2019.2\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\angel\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\angel\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_TheGame.1793113529.00" t="ExcludeRecursive" />
+    <e p="D:\Work\TheGame" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="BuildingScript.cs" t="Include" />
+        <e p="BuildPlaceScript.cs" t="Include" />
+        <e p="CameraController.cs" t="Include" />
+        <e p="CollectScript.cs" t="Include" />
+        <e p="CollectUnitAI.cs" t="Include" />
+        <e p="FollowMouseScript.cs" t="Include" />
+        <e p="GameStateScript.cs" t="Include" />
+        <e p="GoToTargetScript.cs" t="Include" />
+        <e p="PlaceBuildingScript.cs" t="Include" />
+        <e p="PlaceResource.cs" t="Include" />
+        <e p="RelationScript.cs" t="Include" />
+        <e p="ResourceHub.cs" t="Include" />
+        <e p="ResourceScript.cs" t="Include" />
+        <e p="ResoursesEnum.cs" t="Include" />
+        <e p="SelectionScript.cs" t="Include" />
+        <e p="StorageScript.cs" t="Include" />
+        <e p="TargetScript.cs" t="Include" />
+        <e p="UIActionsScript.cs" t="Include" />
+        <e p="UnloadScript.cs" t="Include" />
+        <e p="Utils.cs" t="Include" />
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="TheGame.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
