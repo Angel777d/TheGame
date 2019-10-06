@@ -7,16 +7,17 @@
     <e p="D:\Work\TheGame" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="BuildingPlaceCollisionScript.cs" t="Include" />
+        <e p="BuildingPlaceResourceScript.cs" t="Include" />
+        <e p="BuildingPlaceScript.cs" t="Include" />
         <e p="BuildingScript.cs" t="Include" />
-        <e p="BuildPlaceScript.cs" t="Include" />
         <e p="CameraController.cs" t="Include" />
         <e p="CollectScript.cs" t="Include" />
         <e p="CollectUnitAI.cs" t="Include" />
         <e p="FollowMouseScript.cs" t="Include" />
         <e p="GameStateScript.cs" t="Include" />
         <e p="GoToTargetScript.cs" t="Include" />
-        <e p="PlaceBuildingScript.cs" t="Include" />
-        <e p="PlaceResource.cs" t="Include" />
+        <e p="IPlaceBuildingCondition.cs" t="Include" />
         <e p="RelationScript.cs" t="Include" />
         <e p="ResourceHub.cs" t="Include" />
         <e p="ResourceScript.cs" t="Include" />

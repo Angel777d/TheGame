@@ -6,6 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+enum GameObjectLayer
+{
+    Ground = 8,
+}
+
 public class Utils
 {
     public static GameObject GetObjectUnderMouse(string tag)
@@ -19,7 +25,7 @@ public class Utils
 
     public static Vector3 GetGroundPosition()
     {
-        int layerMask = 1 << LayerMask.NameToLayer("Ground");
+        int layerMask = 1 << LayerMask.NameToLayer(GameObjectLayer.Ground.ToString());
 
         bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hitInfo, 100, layerMask);
         if (!hit) return Vector3.zero;

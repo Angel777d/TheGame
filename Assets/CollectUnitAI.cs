@@ -114,7 +114,8 @@ public class CollectUnitAI : MonoBehaviour
 
     ResourceHub FindStorage(ResourceType type)
     {
-        var lst = FindObjectsOfType<ResourceHub>().Where(hub => hub.CanStore(type)).ToList();
+        var lst = FindObjectsOfType<ResourceHub>()
+            .Where(hub => hub.GetComponent<BuildingScript>().IsActive() && hub.CanStore(type)).ToList();
 
         var pos = transform.position;
         lst.Sort((s1, s2) => CompareDisance(s1, s2, pos));

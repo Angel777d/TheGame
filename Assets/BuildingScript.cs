@@ -6,17 +6,28 @@ using UnityEngine;
 [Serializable]
 public enum BuildingState
 {
-    Noraml = 0,
+    Placing = 0,
     UnderConstruction,
+    Active,
     Abandoned,
-    Placing,
 }
 
 
 public class BuildingScript : MonoBehaviour
 {
-    [SerializeField] private BuildingState state;
-    
+    private BuildingState _state = BuildingState.Placing;
+
+
+    public bool IsActive()
+    {
+        return _state == BuildingState.Active;
+    }
+
+    public void SetState(BuildingState value)
+    {
+        _state = value;
+    }
+
     void Start()
     {
     }
