@@ -10,10 +10,12 @@
         <e p="BuildingPlaceCollisionScript.cs" t="Include" />
         <e p="BuildingPlaceResourceScript.cs" t="Include" />
         <e p="BuildingPlaceScript.cs" t="Include" />
+        <e p="BuildingProductionScript.cs" t="Include" />
         <e p="BuildingScript.cs" t="Include" />
         <e p="CameraController.cs" t="Include" />
         <e p="CollectScript.cs" t="Include" />
         <e p="CollectUnitAI.cs" t="Include" />
+        <e p="DescriptionScript.cs" t="Include" />
         <e p="FollowMouseScript.cs" t="Include" />
         <e p="GameStateScript.cs" t="Include" />
         <e p="GoToTargetScript.cs" t="Include" />
@@ -24,8 +26,15 @@
         <e p="ResoursesEnum.cs" t="Include" />
         <e p="SelectionScript.cs" t="Include" />
         <e p="StorageScript.cs" t="Include" />
+        <e p="Tags.cs" t="Include" />
         <e p="TargetScript.cs" t="Include" />
         <e p="UIActionsScript.cs" t="Include" />
+        <e p="UIBuildButton.cs" t="Include" />
+        <e p="UIGeneralScript.cs" t="Include" />
+        <e p="UIScript.cs" t="Include" />
+        <e p="UITargetScript.cs" t="Include" />
+        <e p="UIUnitScript.cs" t="Include" />
+        <e p="UnitUIScript.cs" t="Include" />
         <e p="UnloadScript.cs" t="Include" />
         <e p="Utils.cs" t="Include" />
       </e>

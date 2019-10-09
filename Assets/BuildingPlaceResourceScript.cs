@@ -5,19 +5,25 @@ public class BuildingPlaceResourceScript : MonoBehaviour, IPlaceBuildingConditio
     private bool _isAllowed;
     private GameObject _target;
 
-    [SerializeField] private ResourceType type = ResourceType.None;
+    private ResourceType _resType = ResourceType.None;
+
+    public ResourceType ResType
+    {
+        set => _resType = value;
+    }
 
     private void Start()
     {
         GetComponent<BuildingPlaceScript>().AddCondition(this);
     }
 
+
     private void OnTriggerEnter(Collider otherObject)
     {
         Debug.Log("OnTriggerEnter");
 
         var res = otherObject.GetComponent<ResourceScript>();
-        _isAllowed = res && res.Type == type;
+        _isAllowed = res && res.Type == _resType;
         if (_isAllowed)
         {
             _target = res.gameObject;

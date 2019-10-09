@@ -11,13 +11,11 @@ GameObject:
   - component: {fileID: 3015621428675020299}
   - component: {fileID: 4517900728676966216}
   - component: {fileID: -5294477381069243802}
+  - component: {fileID: 512966365633946814}
   - component: {fileID: -3649189739581013506}
-  - component: {fileID: 1496935263}
-  - component: {fileID: 1657477317750045718}
-  - component: {fileID: 5361688211443705692}
   m_Layer: 0
   m_Name: BuildingOil
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,6 +64,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 1, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &512966365633946814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8737219519042259225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a72195ee834ad4b9e0b9ce061ad224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  objectName: Oil Pump
+  description: Oil Pump description
 --- !u!114 &-3649189739581013506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,44 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
---- !u!114 &1496935263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8737219519042259225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c23b1dd8a2db54428a2df0ecd6f79fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1657477317750045718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8737219519042259225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747e6539f2e37064b99ccc5d04fa2a51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
---- !u!114 &5361688211443705692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8737219519042259225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9fded5bd59e494b801628fe62ebc40e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
+  resBinding: 2
 --- !u!1 &9219970861999664582
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,14 +14,16 @@ enum GameObjectLayer
 
 public class Utils
 {
-    public static GameObject GetObjectUnderMouse(string tag)
+    public static GameObject GetObjectUnderMouse(string[] tags)
     {
         bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hitInfo);
         if (!hit) return null;
 
-        GameObject obj;
-        return (obj = hitInfo.transform.gameObject).CompareTag(tag) ? obj : null;
+        GameObject obj = hitInfo.transform.gameObject;
+
+        return tags.Any(tag => obj.CompareTag(tag)) ? obj : null;
     }
+
 
     public static Vector3 GetGroundPosition()
     {

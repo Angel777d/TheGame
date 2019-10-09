@@ -7,7 +7,7 @@ using UnityEngine;
 public class BuildingPlaceScript : MonoBehaviour
 {
     private BuildingScript _building;
-    private List<IPlaceBuildingCondition> _conditions = new List<IPlaceBuildingCondition>();
+    private List<IPlaceBuildingCondition> _conditions;
 
     private void Start()
     {

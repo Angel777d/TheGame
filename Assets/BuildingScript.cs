@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [Serializable]
 public enum BuildingState
@@ -15,24 +16,16 @@ public enum BuildingState
 
 public class BuildingScript : MonoBehaviour
 {
-    private BuildingState _state = BuildingState.Placing;
-
+    [SerializeField] private BuildingState state = BuildingState.Placing;
+    [SerializeField] public ResourceType resBinding = ResourceType.None;
 
     public bool IsActive()
     {
-        return _state == BuildingState.Active;
+        return state == BuildingState.Active;
     }
 
     public void SetState(BuildingState value)
     {
-        _state = value;
-    }
-
-    void Start()
-    {
-    }
-
-    void Update()
-    {
+        state = value;
     }
 }

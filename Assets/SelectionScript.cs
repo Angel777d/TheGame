@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class SelectionScript : MonoBehaviour
 {
-    public const string SELCTABLE_TAG = "Selectable";
-
+    private readonly string[] _tags = {Tags.Building.ToString(), Tags.Unit.ToString()};
     [SerializeField] private GameObject currentTarget = null;
 
-//    void Start()
-//    {
-//    }
+
+    public GameObject CurrentTarget
+    {
+        get => currentTarget;
+        set => currentTarget = value;
+    }
 
     void Update()
     {
@@ -18,15 +20,10 @@ public class SelectionScript : MonoBehaviour
         if (ProcessSelect()) return;
     }
 
-    public void SetTarget(GameObject target)
-    {
-        currentTarget = target;
-    }
-
     bool ProcessReset()
     {
         if (!Input.GetMouseButtonDown(1)) return false;
-        SetTarget(null);
+        CurrentTarget = null;
         return true;
     }
 
@@ -34,8 +31,8 @@ public class SelectionScript : MonoBehaviour
     {
         if (currentTarget) return false;
         if (!Input.GetMouseButtonDown(0)) return false;
-        SetTarget(Utils.GetObjectUnderMouse(SELCTABLE_TAG));
+
+        CurrentTarget = Utils.GetObjectUnderMouse(_tags);
         return true;
     }
-
 }

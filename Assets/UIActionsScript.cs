@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UIActionsScript : MonoBehaviour
 {
     public void StartBuild(GameObject prefab)
     {
         ResetBuilding();
-        Instantiate(prefab);
+        var obj = Instantiate(prefab);
+        var building = obj.GetComponent<BuildingScript>();
+        obj.AddComponent<BuildingPlaceScript>();
+        obj.AddComponent<BuildingPlaceCollisionScript>();
+
+        if (building.resBinding != ResourceType.None)
+        {
+            var resScript = obj.AddComponent<BuildingPlaceResourceScript>();
+            resScript.ResType = building.resBinding;
+        }
     }
 
     private void Update()
