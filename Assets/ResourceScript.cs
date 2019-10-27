@@ -8,9 +8,7 @@ public enum ResourceType
 {
     None = 0,
     Iron,
-    Oil,
-    Energy,
-    Work,
+    Oil
 }
 
 public class ResourceScript : MonoBehaviour

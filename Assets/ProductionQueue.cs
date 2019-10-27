@@ -6,27 +6,27 @@ using UnityEngine.Assertions;
 public class ProductionQueue : MonoBehaviour
 {
     [SerializeField] private uint queueSize = 5;
-    private readonly List<GameObject> _productionQueue = new List<GameObject>();
+    [SerializeField] private List<GameObject> productionQueue = new List<GameObject>();
 
     public void AddToQueue(GameObject prefab)
     {
         if (!CanAdd()) return;
-        _productionQueue.Add(prefab);
+        productionQueue.Add(prefab);
     }
 
     private bool CanAdd()
     {
-        return queueSize > _productionQueue.Count;
+        return queueSize > productionQueue.Count;
     }
 
     public GameObject GetCurrent()
     {
-        return _productionQueue.Count > 0 ? _productionQueue[0] : null;
+        return productionQueue.Count > 0 ? productionQueue[0] : null;
     }
 
     public void RemoveFromQueue(GameObject prefab)
     {
-        Assert.AreEqual(prefab, _productionQueue[0]);
-        _productionQueue.RemoveAt(0);
+        Assert.AreEqual(prefab, productionQueue[0]);
+        productionQueue.RemoveAt(0);
     }
 }

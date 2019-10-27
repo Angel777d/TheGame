@@ -9,7 +9,8 @@ public enum Relation
     Neutral = 0,
     Ally,
     Enemy,
-    Own
+    Own,
+    Unknown
 }
 
 public class RelationScript : MonoBehaviour
@@ -21,10 +22,12 @@ public class RelationScript : MonoBehaviour
     private void Start()
     {
         _teams = FindObjectOfType<TeamsScript>();
+        var rel = _teams.GetRelation(teamId);
     }
 
     public Relation GetRelation()
     {
-        return _teams.GetRelation(teamId);
+        // Find can be called before start
+        return _teams ? _teams.GetRelation(teamId) : Relation.Unknown;
     }
 }

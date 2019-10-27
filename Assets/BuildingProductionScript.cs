@@ -34,11 +34,10 @@ class ProductionProcess
 
 public class BuildingProductionScript : MonoBehaviour
 {
-    [SerializeField] private Vector3 outPosition = Vector3.forward * 2;
     [SerializeField] private ProductionQueue queue;
     [SerializeField] private float productionPower = 1; //energy units per second
 
-    private ProductionProcess _product = new ProductionProcess();
+    private readonly ProductionProcess _product = new ProductionProcess();
 
     private void Update()
     {
@@ -53,10 +52,6 @@ public class BuildingProductionScript : MonoBehaviour
         }
     }
 
-    private Vector3 GetOutPosition()
-    {
-        return transform.position + outPosition;
-    }
 
     private void StartProduction(GameObject product)
     {
@@ -80,6 +75,6 @@ public class BuildingProductionScript : MonoBehaviour
     {
         var obj = _product.Clear();
         queue.RemoveFromQueue(obj);
-        Instantiate(obj).transform.position = GetOutPosition();
+        Instantiate(obj).transform.position = GetComponent<PointScript>().GetPosition();
     }
 }

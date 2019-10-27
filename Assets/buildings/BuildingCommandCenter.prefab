@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2879480062769479078}
   - component: {fileID: 1204949760}
   - component: {fileID: 1204949759}
+  - component: {fileID: 4629102895024928093}
   - component: {fileID: 2879480062769479082}
   - component: {fileID: 2879480062769479083}
   m_Layer: 0
@@ -235,6 +236,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   queueSize: 5
+  productionQueue: []
+--- !u!114 &4629102895024928093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879480062769479079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad68e3c8d92800d449c7775782ff0250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  point: {x: 0, y: 0, z: 2}
 --- !u!114 &2879480062769479082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +274,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4727aa0ed07ee884e8f052e4bb7c8bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outPosition: {x: 0, y: 0, z: 1}
   queue: {fileID: 1204949759}
   productionPower: 1

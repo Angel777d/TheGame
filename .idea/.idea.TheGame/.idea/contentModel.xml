@@ -21,6 +21,7 @@
         <e p="GoToTargetScript.cs" t="Include" />
         <e p="HitPointsScript.cs" t="Include" />
         <e p="IPlaceBuildingCondition.cs" t="Include" />
+        <e p="PointScript.cs" t="Include" />
         <e p="ProductionCostScript.cs" t="Include" />
         <e p="ProductionListScript.cs" t="Include" />
         <e p="ProductionQueue.cs" t="Include" />
