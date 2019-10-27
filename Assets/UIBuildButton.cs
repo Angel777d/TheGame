@@ -8,14 +8,14 @@ public class UIBuildButton : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private Text text;
 
-    private BuildingProductionScript _scr;
-    private int _index;
+    private ProductionQueue _scr;
+    private GameObject _prefab;
 
-    public void SetItem(BuildingProductionScript scr, int index)
+    public void SetItem(ProductionQueue scr, GameObject prefab)
     {
         _scr = scr;
-        _index = index;
-        UpdateDescription(scr.productionList[index]);
+        _prefab = prefab;
+        UpdateDescription(prefab);
         button.onClick.AddListener(HandleClick);
     }
 
@@ -25,8 +25,8 @@ public class UIBuildButton : MonoBehaviour
         text.text = desc.Name;
     }
 
-    public void HandleClick()
+    private void HandleClick()
     {
-        _scr.AddToQueue(_index);
+        _scr.AddToQueue(_prefab);
     }
 }

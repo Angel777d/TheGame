@@ -1,54 +1,55 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+
+class ProductionProcess
+{
+    public GameObject product;
+    public ProductionCostScript cost;
+    public float energy;
+
+    public bool Active
+    {
+        get => product;
+    }
+
+    public bool Ready
+    {
+        get => Active && energy >= cost.energy;
+    }
+
+    public GameObject Clear()
+    {
+        var result = product;
+        product = null;
+        cost = null;
+        energy = 0;
+        return result;
+    }
+}
+
 public class BuildingProductionScript : MonoBehaviour
 {
-    [SerializeField] public List<GameObject> productionList = new List<GameObject>();
-    [SerializeField] public List<uint> productionTimeList = new List<uint>();
-
-    public void AddToQueue(int index)
-    {
-        if (!CanAdd()) return;
-        Debug.Assert(index < productionList.Count, "There is no such product in list");
-        productionQueue.Add(index);
-    }
-
-    [SerializeField] private List<int> productionQueue = new List<int>();
-    [SerializeField] private uint queueSize = 5;
-
     [SerializeField] private Vector3 outPosition = Vector3.forward * 2;
+    [SerializeField] private ProductionQueue queue;
+    [SerializeField] private float productionPower = 1; //energy units per second
 
-    private float _dt = 0;
-
-
-    private bool CanAdd()
-    {
-        return queueSize > productionQueue.Count;
-    }
+    private ProductionProcess _product = new ProductionProcess();
 
     private void Update()
     {
-        if (productionQueue.Count == 0)
+        if (!_product.Active)
         {
-            _dt = 0;
-            return;
+            StartProduction(queue.GetCurrent());
         }
 
-        ProcessProduction();
-    }
-
-    private void ProcessProduction()
-    {
-        _dt += Time.deltaTime;
-        var index = productionQueue[0];
-        var productionTime = productionTimeList[index];
-
-        if (_dt > productionTime)
+        if (_product.Active)
         {
-            FinishProduction(index);
+            ProcessProduction();
         }
     }
 
@@ -57,14 +58,28 @@ public class BuildingProductionScript : MonoBehaviour
         return transform.position + outPosition;
     }
 
-    private void FinishProduction(int index)
+    private void StartProduction(GameObject product)
     {
-        _dt = 0;
-        productionQueue.RemoveAt(0);
+        if (product)
+        {
+            _product.product = product;
+            _product.cost = product.GetComponent<ProductionCostScript>();
+        }
+    }
 
-        var obj = productionList[index];
-        var instance = Instantiate(obj);
+    private void ProcessProduction()
+    {
+        _product.energy += productionPower * Time.deltaTime;
+        if (_product.Ready)
+        {
+            FinishProduction();
+        }
+    }
 
-        instance.transform.position = GetOutPosition();
+    private void FinishProduction()
+    {
+        var obj = _product.Clear();
+        queue.RemoveFromQueue(obj);
+        Instantiate(obj).transform.position = GetOutPosition();
     }
 }

@@ -30,7 +30,7 @@ public class GoToTargetScript : MonoBehaviour
 
     private void OnDisable()
     {
-        _agent.isStopped = true;
+//        _agent.isStopped = true;
         _target = null;
         _agent = null;
     }

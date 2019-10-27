@@ -14,7 +14,17 @@ public enum Relation
 
 public class RelationScript : MonoBehaviour
 {
-    [SerializeField] private Relation relation;
-
     [SerializeField] private int teamId = 0;
+
+    private TeamsScript _teams;
+
+    private void Start()
+    {
+        _teams = FindObjectOfType<TeamsScript>();
+    }
+
+    public Relation GetRelation()
+    {
+        return _teams.GetRelation(teamId);
+    }
 }

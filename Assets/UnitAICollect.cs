@@ -17,7 +17,7 @@ enum CollectorState
     UnloadResources
 }
 
-public class CollectUnitAI : MonoBehaviour
+public class UnitAICollect : MonoBehaviour
 {
     private TargetScript _target;
     private GoToTargetScript _goTo;
@@ -108,7 +108,7 @@ public class CollectUnitAI : MonoBehaviour
         var lst = FindObjectsOfType<ResourceScript>().Where(res => res.NotEmpty() && res.Type == type).ToList();
 
         var pos = transform.position;
-        lst.Sort((s1, s2) => CompareDisance(s1, s2, pos));
+        lst.Sort((s1, s2) => Utils.CompareDistance(s1, s2, pos));
         return lst.Count > 0 ? lst[0] : null;
     }
 
@@ -118,15 +118,7 @@ public class CollectUnitAI : MonoBehaviour
             .Where(hub => hub.GetComponent<BuildingScript>().IsActive() && hub.CanStore(type)).ToList();
 
         var pos = transform.position;
-        lst.Sort((s1, s2) => CompareDisance(s1, s2, pos));
+        lst.Sort((s1, s2) => Utils.CompareDistance(s1, s2, pos));
         return lst.Count > 0 ? lst[0] : null;
-    }
-
-    int CompareDisance(Component c1, Component c2, Vector3 pos)
-    {
-        var p1 = c1.gameObject.transform.position;
-        var p2 = c2.gameObject.transform.position;
-
-        return Vector3.Distance(p1, pos) < Vector3.Distance(p2, pos) ? -1 : 1;
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class UIScript : MonoBehaviour
 {
@@ -11,25 +6,23 @@ public class UIScript : MonoBehaviour
     [SerializeField] private UITargetScript target;
     [SerializeField] private UIGeneralScript general;
 
-
-    private GameObject _target;
-
     private void Start()
     {
         general.gameObject.SetActive(true);
         target.gameObject.SetActive(false);
+
+        selection.EvSelected.AddListener(UpdateTarget);
+        UpdateTarget();
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        UpdateTarget();
+        selection.EvSelected.RemoveListener(UpdateTarget);
     }
 
     private void UpdateTarget()
     {
-        if (_target == selection.CurrentTarget) return;
-        _target = selection.CurrentTarget;
-        OnTargetChanged(_target);
+        OnTargetChanged(selection.CurrentTarget);
     }
 
     private void OnTargetChanged(GameObject target)

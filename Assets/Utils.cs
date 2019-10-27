@@ -40,4 +40,17 @@ public class Utils
         var lst = obj.GetComponents<StorageScript>().Where(script => script.Type == type).ToList();
         return lst.Count > 0 ? lst[0] : null;
     }
+
+    public static int CompareDistance(Component c1, Component c2, Vector3 pos)
+    {
+        return CompareDistance(c1.gameObject, c2.gameObject, pos);
+    }
+
+    public static int CompareDistance(GameObject c1, GameObject c2, Vector3 pos)
+    {
+        var p1 = c1.transform.position;
+        var p2 = c2.transform.position;
+
+        return Vector3.Distance(p1, pos) < Vector3.Distance(p2, pos) ? -1 : 1;
+    }
 }

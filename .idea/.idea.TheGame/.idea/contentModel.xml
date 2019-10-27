@@ -14,12 +14,16 @@
         <e p="BuildingScript.cs" t="Include" />
         <e p="CameraController.cs" t="Include" />
         <e p="CollectScript.cs" t="Include" />
-        <e p="CollectUnitAI.cs" t="Include" />
         <e p="DescriptionScript.cs" t="Include" />
+        <e p="EnergyAccumulatorScript.cs" t="Include" />
         <e p="FollowMouseScript.cs" t="Include" />
         <e p="GameStateScript.cs" t="Include" />
         <e p="GoToTargetScript.cs" t="Include" />
+        <e p="HitPointsScript.cs" t="Include" />
         <e p="IPlaceBuildingCondition.cs" t="Include" />
+        <e p="ProductionCostScript.cs" t="Include" />
+        <e p="ProductionListScript.cs" t="Include" />
+        <e p="ProductionQueue.cs" t="Include" />
         <e p="RelationScript.cs" t="Include" />
         <e p="ResourceHub.cs" t="Include" />
         <e p="ResourceScript.cs" t="Include" />
@@ -28,15 +32,20 @@
         <e p="StorageScript.cs" t="Include" />
         <e p="Tags.cs" t="Include" />
         <e p="TargetScript.cs" t="Include" />
+        <e p="TeamsScript.cs" t="Include" />
         <e p="UIActionsScript.cs" t="Include" />
         <e p="UIBuildButton.cs" t="Include" />
         <e p="UIGeneralScript.cs" t="Include" />
         <e p="UIScript.cs" t="Include" />
         <e p="UITargetScript.cs" t="Include" />
         <e p="UIUnitScript.cs" t="Include" />
+        <e p="UnitAICollect.cs" t="Include" />
+        <e p="UnitAIWarrior.cs" t="Include" />
         <e p="UnitUIScript.cs" t="Include" />
         <e p="UnloadScript.cs" t="Include" />
         <e p="Utils.cs" t="Include" />
+        <e p="WarriorScript.cs" t="Include" />
+        <e p="WeaponScript.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

@@ -45,15 +45,17 @@ public class UITargetScript : MonoBehaviour
 
         _buttons.Clear();
 
-        var scr = target.GetComponent<BuildingProductionScript>();
+        var scr = target.GetComponent<ProductionListScript>();
         if (!scr) return;
-
-        for (int index = 0; index < scr.productionList.Count; index++)
+        int xPos = 0;
+        foreach (var product in scr.productionList)
         {
             var button = Instantiate(buttonPrefab, prodPlaceholder.transform);
             _buttons.Add(button);
             var bscr = button.GetComponent<UIBuildButton>();
-            bscr.SetItem(scr, index);
+            bscr.SetItem(target.GetComponent<ProductionQueue>(), product);
+            bscr.transform.position = bscr.transform.position + new Vector3(xPos, 0, 0);
+            xPos += 150;
         }
     }
 

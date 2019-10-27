@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 4900044626993061954}
   - component: {fileID: 4900044626993061967}
   - component: {fileID: 2363847706211699498}
+  - component: {fileID: -9173045894958626165}
   m_Layer: 0
   m_Name: UnitCollector
   m_TagString: Unit
@@ -170,6 +171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
+  EvTargetChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4900044626993061964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3334aafc640b81c409056e35c11b8759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relation: 3
   teamId: 0
 --- !u!114 &4900044626993061953
 MonoBehaviour:
@@ -282,3 +285,17 @@ MonoBehaviour:
   image: {fileID: 0}
   objectName: Spoiler
   description: Spoiler description
+--- !u!114 &-9173045894958626165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900044626993061961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ec4637816e34541ac9d4bf9afcbc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: 10
+  iron: 0
