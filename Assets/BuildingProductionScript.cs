@@ -35,9 +35,15 @@ class ProductionProcess
 public class BuildingProductionScript : MonoBehaviour
 {
     [SerializeField] private ProductionQueue queue;
-    [SerializeField] private float productionPower = 1; //energy units per second
+    [SerializeField] private float productionPower = 10; //energy units per second
 
     private readonly ProductionProcess _product = new ProductionProcess();
+    private EnergyController _energy;
+
+    private void Start()
+    {
+        _energy = FindObjectOfType<EnergyController>();
+    }
 
     private void Update()
     {
@@ -52,7 +58,6 @@ public class BuildingProductionScript : MonoBehaviour
         }
     }
 
-
     private void StartProduction(GameObject product)
     {
         if (product)
@@ -64,7 +69,8 @@ public class BuildingProductionScript : MonoBehaviour
 
     private void ProcessProduction()
     {
-        _product.energy += productionPower * Time.deltaTime;
+        var power = _energy.Use(productionPower * Time.deltaTime, gameObject);
+        _product.energy += power;
         if (_product.Ready)
         {
             FinishProduction();

@@ -16,6 +16,8 @@
         <e p="CollectScript.cs" t="Include" />
         <e p="DescriptionScript.cs" t="Include" />
         <e p="EnergyAccumulatorScript.cs" t="Include" />
+        <e p="EnergyController.cs" t="Include" />
+        <e p="EnergyGenerator.cs" t="Include" />
         <e p="FollowMouseScript.cs" t="Include" />
         <e p="GameStateScript.cs" t="Include" />
         <e p="GoToTargetScript.cs" t="Include" />

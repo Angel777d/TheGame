@@ -7,12 +7,37 @@ public class EnergyAccumulatorScript : MonoBehaviour
 {
     [SerializeField] private float capacity = 100;
     [SerializeField] private float value = 100;
-    [SerializeField] private float chargeSpeed = 5; //units per second
+
+    [SerializeField] private bool share = false;
+    [SerializeField] private float useDistance = 5;
+
+    private EnergyController _controller;
+
+    private void Awake()
+    {
+        _controller = FindObjectOfType<EnergyController>();
+        _controller.RegisterAccumulator(this);
+    }
+
+    private void OnDestroy()
+    {
+        _controller.UnregisterAccumulator(this);
+        _controller = null;
+    }
+
+    public bool CanShare()
+    {
+        return share;
+    }
     
+    public float UseDistance()
+    {
+        return useDistance;
+    }
+
     public float Charge(float potentialIncome)
     {
-        var maxIncome = Mathf.Min(Time.deltaTime * chargeSpeed, potentialIncome);
-        maxIncome = Mathf.Min(maxIncome, capacity - value);
+        var maxIncome = Mathf.Min(potentialIncome, capacity - value);
         value += maxIncome;
         return maxIncome;
     }
