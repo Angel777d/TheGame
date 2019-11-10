@@ -22,12 +22,13 @@ public class RelationScript : MonoBehaviour
     private void Start()
     {
         _teams = FindObjectOfType<TeamsScript>();
-        var rel = _teams.GetRelation(teamId);
     }
 
-    public Relation GetRelation()
+    public int TeamId => teamId;
+
+    public Relation GetRelation(RelationScript other)
     {
         // Find can be called before start
-        return _teams ? _teams.GetRelation(teamId) : Relation.Unknown;
+        return _teams ? _teams.GetRelation(this, other) : Relation.Unknown;
     }
 }

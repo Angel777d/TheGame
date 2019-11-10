@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     private const string AxisHor = "Horizontal";
     private const string AxisVer = "Vertical";
+    private const string AxisDist = "Mouse ScrollWheel";
 
     [SerializeField] private float move_sens = .5f;
 
@@ -25,6 +26,8 @@ public class CameraController : MonoBehaviour
             var pos = camera.transform.position;
             pos.x += Input.GetAxis(AxisHor) * move_sens;
             pos.z += Input.GetAxis(AxisVer) * move_sens;
+            
+            pos.y += Input.GetAxis(AxisDist) * move_sens*10;
             camera.transform.position = pos;
         }
     }

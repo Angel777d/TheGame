@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3621679463278119816}
   - component: {fileID: 3621679463278119819}
   - component: {fileID: 3621679463278119821}
+  - component: {fileID: 3621679463278119813}
   - component: {fileID: 3621679463278119812}
   - component: {fileID: 3621679463278119817}
-  - component: {fileID: 3621679463278119813}
   - component: {fileID: 3621679463278119818}
   - component: {fileID: 3621679463278119822}
   - component: {fileID: 3621679463278119820}
@@ -79,6 +79,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3621679463278119813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621679463278119815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3334aafc640b81c409056e35c11b8759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamId: 0
 --- !u!114 &3621679463278119812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,19 +124,6 @@ MonoBehaviour:
   EvKilled:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3621679463278119813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3621679463278119815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3334aafc640b81c409056e35c11b8759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teamId: 0
 --- !u!114 &3621679463278119818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy: 10
-  iron: 0
+  price: []
 --- !u!1 &3621679464279587832
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class UnitAICollect : MonoBehaviour
     private CollectScript _collect;
     private UnloadScript _unload;
 
-    [SerializeField] private ResourceType targetType = ResourceType.Oil;
+    [SerializeField] private ResourceType targetType = ResourceType.Iron;
     [SerializeField] private float collectDistance = 1.5f;
     [SerializeField] private float unloadDistance = 1.5f;
 

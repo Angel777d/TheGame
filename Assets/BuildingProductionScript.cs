@@ -1,34 +1,55 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 
 class ProductionProcess
 {
-    public GameObject product;
-    public ProductionCostScript cost;
-    public float energy;
+    private GameObject _product;
+    private ProductionCostScript _cost;
+    private float _energy;
+    private readonly Dictionary<ResourceType, float> _have = new Dictionary<ResourceType, float>();
 
-    public bool Active
+    public bool Active => _product;
+    public bool Ready => Active && _energy >= _cost.energy;
+
+    public void Set(GameObject obj)
     {
-        get => product;
+        Clear();
+        _product = obj;
+        _cost = obj.GetComponent<ProductionCostScript>();
+        foreach (var resourceEntry in _cost.price)
+        {
+            _have[resourceEntry.type] = 0;
+        }
     }
 
-    public bool Ready
+    public void AddEnergy(float value)
     {
-        get => Active && energy >= cost.energy;
+        _energy += value;
     }
 
-    public GameObject Clear()
+    public void AddResource(ResourceType type, float value)
     {
-        var result = product;
-        product = null;
-        cost = null;
-        energy = 0;
-        return result;
+        _have[type] += value;
+    }
+
+    public ResourceType[] GetResources()
+    {
+        return _have.Keys.ToArray();
+    }
+
+    public GameObject Get()
+    {
+        return _product;
+    }
+
+    public void Clear()
+    {
+        _have.Clear();
+        _product = null;
+        _cost = null;
+        _energy = 0;
     }
 }
 
@@ -62,15 +83,14 @@ public class BuildingProductionScript : MonoBehaviour
     {
         if (product)
         {
-            _product.product = product;
-            _product.cost = product.GetComponent<ProductionCostScript>();
+            _product.Set(product);
         }
     }
 
     private void ProcessProduction()
     {
         var power = _energy.Use(productionPower * Time.deltaTime, gameObject);
-        _product.energy += power;
+        _product.AddEnergy(power);
         if (_product.Ready)
         {
             FinishProduction();
@@ -79,7 +99,8 @@ public class BuildingProductionScript : MonoBehaviour
 
     private void FinishProduction()
     {
-        var obj = _product.Clear();
+        var obj = _product.Get();
+        _product.Clear();
         queue.RemoveFromQueue(obj);
         Instantiate(obj).transform.position = GetComponent<PointScript>().GetPosition();
     }

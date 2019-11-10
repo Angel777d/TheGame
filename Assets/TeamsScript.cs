@@ -1,27 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+[Serializable]
+class TeamDescription
+{
+    [SerializeField] public int teamId = 0;
+    [SerializeField] public int[] enemies;
+    [SerializeField] public int[] allies;
+}
+
 public class TeamsScript : MonoBehaviour
 {
-    [SerializeField] private int myTeamId = 0;
-    [SerializeField] private int[] enemies = {1, 3};
-    [SerializeField] private int[] allies = {2};
-
-    public Relation GetRelation(int teamId)
+    [SerializeField] private int playerTeamId = 0;
+    [SerializeField] private TeamDescription[] teams;
+    
+    public Relation GetRelation(RelationScript current, RelationScript other)
     {
-        if (teamId == myTeamId)
+        if (current.TeamId == other.TeamId)
         {
             return Relation.Own;
         }
 
-        if (enemies.Contains(teamId))
+        var team = teams.First(description => description.teamId == current.TeamId);
+        if (team.enemies.Contains(other.TeamId))
         {
             return Relation.Enemy;
         }
 
-        if (allies.Contains(teamId))
+        if (team.allies.Contains(other.TeamId))
         {
             return Relation.Ally;
         }

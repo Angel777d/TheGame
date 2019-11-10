@@ -88,10 +88,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7400525706462081323}
   - component: {fileID: 2885026568822172754}
+  - component: {fileID: 7146438214057416764}
+  - component: {fileID: 8745589065099655500}
   - component: {fileID: 245513617424882938}
   - component: {fileID: 8623909991472836073}
   - component: {fileID: 7128703689685379287}
-  - component: {fileID: 8745589065099655500}
   - component: {fileID: 714441802258197366}
   m_Layer: 0
   m_Name: BuildingSolarPlant
@@ -128,6 +129,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!208 &7146438214057416764
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862775770733099848}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.25, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.25, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &8745589065099655500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862775770733099848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3334aafc640b81c409056e35c11b8759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamId: 0
 --- !u!114 &245513617424882938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,19 +204,6 @@ MonoBehaviour:
   image: {fileID: 0}
   objectName: Some name
   description: Some description
---- !u!114 &8745589065099655500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6862775770733099848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3334aafc640b81c409056e35c11b8759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teamId: 0
 --- !u!114 &714441802258197366
 MonoBehaviour:
   m_ObjectHideFlags: 0

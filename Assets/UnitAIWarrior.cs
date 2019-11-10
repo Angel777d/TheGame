@@ -17,6 +17,7 @@ public class UnitAIWarrior : MonoBehaviour
     private TargetScript _target;
     private WarriorScript _warrior;
     private GoToTargetScript _goTo;
+    private RelationScript _relationScript;
 
     private WarriorState _state = WarriorState.Idle;
 
@@ -26,6 +27,8 @@ public class UnitAIWarrior : MonoBehaviour
         _target = GetComponent<TargetScript>();
         _warrior = GetComponent<WarriorScript>();
         _goTo = GetComponent<GoToTargetScript>();
+        _goTo = GetComponent<GoToTargetScript>();
+        _relationScript = GetComponent<RelationScript>();
     }
 
     void Update()
@@ -58,7 +61,8 @@ public class UnitAIWarrior : MonoBehaviour
 
     GameObject FindEnemy()
     {
-        var lst = FindObjectsOfType<RelationScript>().Where(rel => rel.GetRelation() == Relation.Enemy).ToList();
+        var lst = FindObjectsOfType<RelationScript>().Where(rel => _relationScript.GetRelation(rel) == Relation.Enemy)
+            .ToList();
 
         var pos = transform.position;
         lst.Sort((s1, s2) => Utils.CompareDistance(s1, s2, pos));
